@@ -2,5 +2,6 @@
 
 ## Anggota Kelompok
 
-|No | Nama                    | NIM        | Kontribusi                   | Status       |
-|---|-------------------------|------------|------------------------------|--------------|
+| Nama                    | NIM        | Kontribusi                   | Status       |
+|-------------------------|------------|------------------------------|--------------|
+| Teguh Hidayat           | 2401020168 | Pathfinding Algorithm        | Ongoing      |
