@@ -157,19 +157,21 @@ class AnimatedObject {
                     // Interpolate position pada segment
                     this.x += (nextPoint.x - currentPoint.x) * this.progressOnSegment;
                     this.y += (nextPoint.y - currentPoint.y) * this.progressOnSegment;
+                    this.updateAngleTowardsPoint(nextPoint);
                 }
-
-                // Update angle
-                this.updateAngleTowardsPoint(nextPoint);
             }
         }
 
         this.animationTime += deltaTime;
 
         // Cek apakah sudah mencapai akhir
-        if (this.currentPointIndex >= this.pathPoints.length - 1 && this.progressOnSegment >= 1) {
+        if (this.currentPointIndex >= this.pathPoints.length - 1) {
+            const lastPoint = this.pathPoints[this.pathPoints.length - 1];
+            this.x = lastPoint.x;
+            this.y = lastPoint.y;
+            this.progressOnSegment = 1;
             this.isAnimating = false;
-            return true; // Animation finished
+            return true;
         }
 
         return false;
@@ -319,6 +321,30 @@ class AnimationSystem {
         if (obj) {
             obj.resumeAnimation();
         }
+    }
+
+    /**
+     * Reset animation object to the beginning of its path
+     */
+    resetObjectAnimation(objectId) {
+        const obj = this.getObject(objectId);
+        if (!obj || !obj.pathPoints || obj.pathPoints.length === 0) {
+            return false;
+        }
+
+        obj.currentPointIndex = 0;
+        obj.progressOnSegment = 0;
+        obj.distanceTraveled = 0;
+        obj.animationTime = 0;
+        obj.isAnimating = false;
+        obj.isPaused = false;
+
+        const firstPoint = obj.pathPoints[0];
+        obj.x = firstPoint.x;
+        obj.y = firstPoint.y;
+        obj.updateAngleTowardsNextPoint();
+
+        return true;
     }
 
     /**
