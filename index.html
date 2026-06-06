@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Spatial Mapping - Pemetaan Rute Spasial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Urban Spatial Mapping System</h1>
+            <p>Pemetaan Rute Spasial Perkotaan dengan Animasi Pergerakan Obyek</p>
+        </header>
 
+        <div class="content-wrapper">
+            <div class="controls-panel">
+            <div class="control-group">
+                <h3>Map Controls</h3>
+                <button id="zoomInBtn" class="btn btn-primary">🔍+ Zoom In</button>
+                <button id="zoomOutBtn" class="btn btn-primary">🔍- Zoom Out</button>
+                <button id="resetViewBtn" class="btn btn-secondary">Reset View</button>
+            </div>
+
+            <div class="control-group">
+                <h3>Map Management</h3>
+                <button id="regenerateMapBtn" class="btn btn-danger">🔄 Generate New Map</button>
+            </div>
+
+            <div class="control-group">
+                <h3>Route Animation</h3>
+                <button id="startTrackBtn" class="btn btn-success">▶️ Start Track Animation</button>
+                <button id="stopTrackBtn" class="btn btn-warning" disabled>⏹️ Stop Track</button>
+                <button id="resetAnimationBtn" class="btn btn-secondary">🔄 Reset Animation</button>
+                <button id="randomizePositionBtn" class="btn btn-info">🎲 Randomize Position</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="mapCanvas"></canvas>
+            <div id="statsPanel" class="stats-panel">
+                <div>Zoom: <span id="zoomLevel">1.0x</span></div>
+                <div>Map Size: <span id="mapSize">0x0</span></div>
+                <div>Nodes: <span id="nodeCount">0</span></div>
+                <div>Roads: <span id="roadCount">0</span></div>
+                <div>Position: <span id="position">0, 0</span></div>
+                <div>Animation: <span id="animationStatus">Stopped</span></div>
+                <div>Speed: <span id="animationSpeed">0</span></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Modules organized by contribution -->
+    <script src="js/graph.js"></script>
+    <script src="js/pathfinding.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
