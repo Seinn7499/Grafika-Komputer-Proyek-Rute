@@ -6,4 +6,5 @@
 |-------------------------|------------|------------------------------|--------------|
 | Teguh Hidayat           | 2401020168 | Pathfinding Algorithm        | Ongoing      |
 | Nawir Sultoni           | 2401020141 | Graph Data Structure         | Ongoing      |
-| Sandy Yahya         | 2401020139  |Animation system        | Ongoing  
+| Sandy Yahya             | 2401020139 | Animation system             | Ongoing      |
+| Adhie Mulia Sembiring   | 2401020165 | Rendering Visual Map         | Ongoing      |
